@@ -18,7 +18,7 @@ if($_SESSION['status']!="login"){
 <body>
 
     <div class='header'>
-        <a href="home.php" class="custom-logo-link" rel="home" aria-current="page"><img width="200" height="80px" src="gambar/logo.PNG" class="custom-logo"/></a>
+        <a href="home.php" class="custom-logo-link" rel="home" aria-current="page"><img width="200" height="80px" src="gambar/logo.png" class="custom-logo"/></a>
 
         <div class="menu-header-1">
             <div class="a">

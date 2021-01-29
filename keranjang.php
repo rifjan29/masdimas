@@ -45,7 +45,10 @@ $con = new mysqli("localhost","root","","masdimas");
 	<section class='gambar'>
 		<div class='container'>
 			<h2>My Cart</h2>
-			<table class='table'>
+		<?php
+			if (isset($_SESSION['keranjang'])) {
+				?>
+								<table class='table'>
 				<thead>
 					<tr>
 						<th>No</th>
@@ -58,8 +61,10 @@ $con = new mysqli("localhost","root","","masdimas");
 					</tr>
 				</thead>
 				<tbody>
-					<?php $nomor=1; ?>
-					<?php foreach ($_SESSION['keranjang'] as $id_produk => $jumlah): ?>
+					
+					<?php 
+					$nomor=1;
+					foreach ($_SESSION['keranjang'] as $id_produk => $jumlah): ?>
 						<?php $ambil = $con->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
 						$pecah = $ambil->fetch_assoc();
 						// $id_produk = $pecah['id_produk'];
@@ -81,6 +86,15 @@ $con = new mysqli("localhost","root","","masdimas");
 					<?php endforeach ?>
 				</tbody>
 			</table>
+			<?php
+			}else{
+				?>
+					<center>
+						<p>Maaf tidak keranjang yang tersimpan</p>
+					</center>
+				<?php
+			}
+		?>
 		</div>
 	</section>
 	<div class='btn'>

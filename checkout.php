@@ -97,7 +97,7 @@ $con = new mysqli("localhost","root","","masdimas");
 
 					<tr>
 						<select class='form-control' name='pembayaran'>
-							<option value="0">Pilih metode pembayaran</option>
+							<option value="null">Pilih metode pembayaran</option>
 							<option value="Transfer Bank ke BRI no REK.30xxxxxx">Transfer Bank ke BRI no REK.30xxxxxx</option>
 							<option value="GOPAY/OVO">GOPAY/OVO</option>
 							<option value="COD/Bayar Tunai">COD/Bayar Tunai</option>
@@ -131,7 +131,7 @@ $con = new mysqli("localhost","root","","masdimas");
 
 		
 			if ($tanggal != null) {
-				if ($pembayaran != 0) {
+				if ($pembayaran != "null") {
 					$sql = mysqli_query($con,"INSERT INTO `pembelian` (`id_pembelian`,`id_produk`,`username`, `atasnama`, `tanggal`, `pembayaran`,`jumlah`, `total`) VALUES (NULL,'$id', '$username', '$atasnama', '$tanggal', '$pembayaran','$jumlah1', '$total1')");
 					if (isset($sql)) {
 						echo "<script>alert('Transaksi Berhasil! Pesanan sedang diproses');</script>";
