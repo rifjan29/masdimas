@@ -1,0 +1,146 @@
+body {
+	background-color: #FFE599;
+	margin: 0; font-family: sans-serif;
+}
+.header{
+	width: 100%;
+	height: 60px;
+	background-color: #F6B26B;
+}
+.menu-header-1{
+	float: right;
+	height: 60px;
+	width: 40%;
+	border-left: 0px solid;
+	text-align: right;
+	font-family: signika;
+}
+.menu-header-1 .a{
+	border-left: 0px solid;
+	width: 44%;
+	float: right;
+	height: 60px;
+	margin-right: 100px;
+}
+.menu-header-1 .a ul li{
+	display: inline-block;
+	position: relative;
+	margin-top: 20px;
+	margin-right: 3px;
+}
+.menu-header-1 .a ul li a{
+	color: white;
+	text-decoration: none;
+	border: 3px solid;
+	border-radius: 2px;
+
+	padding: 2px 17px 2px 17px;
+	transition: 0.5s ease;
+}
+.menu-header-1 .a ul li a:hover{
+	background-color: #FFE599;
+	color: #85200c;
+}
+.menu-header-1 .c{
+	margin-top: 20px;
+	width: 34%;
+	float: right;
+	height: 60px;
+	text-align: center;
+}
+.menu-header-1 .c a{
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	font-family: signika;
+	font-style: bold;
+}
+.menu-header-2{
+	float: right;
+	height: 60px;
+	width: 40%;
+}
+.menu-header-2 input[type="text"]{
+	height: 36px;
+	width: 68%;
+	float: left;
+	margin-top: 8px;
+	padding-left: 10px;
+	border: none;
+}
+.header-2{
+	width: 100%;
+	height: 60px;
+	background-color: #F6B26B;
+}
+.header-2 .menu-header-2{
+	margin-left: 4%;
+	width: 100%;
+	height: 43px;
+}
+.menu-header-2 ul li{
+	display: inline-block;
+	position: relative;
+	list-style-type: none;
+	margin-right: 50px;
+	margin-top: 12px;
+}
+.menu-header-2 ul li a{
+	font-size: 13px;
+	font-family: Arial Black;
+	font-style: bold;
+	text-decoration: none;
+	color: white;
+}
+.menu-header-2 ul li a:hover{
+	border-bottom: 1px solid;
+}
+.deskripsi {
+	width: 70%; 
+	display: grid;  
+	margin:auto;
+	grid-template-columns: 1fr; 
+}
+.tulisan{
+	width: 90%;
+	top: 60px; 
+	border: 5px solid white;
+	margin: 10px;
+	padding: 2px 17px 2px 17px; 
+	position: relative;
+}
+.tulisan h1{
+	margin-left: 20px;
+	font-family: Brush Script MT;
+	color: #85200c;
+	font-size: 50px;
+	text-align: center;
+	position: relative;
+}
+.tulisan p{
+	margin-left: 60px;
+	font-size: 22px;
+	font-family: times;
+	color: #85200c;
+	position: relative;
+}
+.footer {
+	top: 100px;
+	text-align: center; 
+	margin: 20px; 
+	color: white; 
+	background:  #F6B26B; 
+	height: 70px;
+	position: relative;
+}
+
+.footer p{
+	padding-top:25px;
+}
+
+.footer a{
+	text-decoration: none; 
+	color: white; 
+	font-style: bold;
+	font-family: signika;
+}
