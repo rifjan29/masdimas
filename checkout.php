@@ -97,7 +97,7 @@ $con = new mysqli("localhost","root","","masdimas");
 
 					<tr>
 						<select class='form-control' name='pembayaran'>
-							<option value="0" <?=$disabled?>>Pilih metode pembayaran</option>
+							<option value="0">Pilih metode pembayaran</option>
 							<option value="Transfer Bank ke BRI no REK.30xxxxxx">Transfer Bank ke BRI no REK.30xxxxxx</option>
 							<option value="GOPAY/OVO">GOPAY/OVO</option>
 							<option value="COD/Bayar Tunai">COD/Bayar Tunai</option>
@@ -141,7 +141,7 @@ $con = new mysqli("localhost","root","","masdimas");
 						echo "Error! Mohon untuk mencoba kembali";
 					}
 				}else{
-					$disabled = "disabled";
+					
 					?>
 						<p style="color:red"> Maaf Pembayaran harus terisi !</p>
 					<?php
