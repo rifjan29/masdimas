@@ -62,7 +62,7 @@ $con = new mysqli("localhost","root","","masdimas");
 					<?php foreach ($_SESSION['keranjang'] as $id_produk => $jumlah): ?>
 						<?php $ambil = $con->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
 						$pecah = $ambil->fetch_assoc();
-						$id_produk = $pecah['id_produk'];
+						// $id_produk = $pecah['id_produk'];
 						$subharga = $pecah['harga']*$jumlah;
 						?>
 

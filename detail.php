@@ -9,15 +9,15 @@
 
 		<strong><?php echo $detail['username'];?></strong> <br>
 		<p>
-			<?php echo $detail['email']; ?><br>
-			<?php echo $detail['nohp']; ?> <br>
-			<?php echo $detail['alamat']; ?> <br>
-			<?php echo $detail['kodepos']; ?> 
+			Email : <?php echo $detail['email']; ?><br>
+			NoHP : <?php echo $detail['nohp']; ?> <br>
+			Alamat :<?php echo $detail['alamat']; ?> <br>
+			Kode Pos :<?php echo $detail['kodepos']; ?> 
 		</p>
 
 		<p>
 			tanggal:<?php echo $detail['tanggal']; ?> <br>
-			Total:<? echo $detail['total'];?>
+			Total:<?php echo $detail['total'];?>
 		</p>
 
 		<table class="table">
@@ -33,7 +33,7 @@
 			<tbody>
 				<?php $nomor=1; ?>
 				<?php include 'konek.php';
-				$ambil=$con->query("SELECT * FROM terjual JOIN produk ON terjual.id_produk=produk.id_produk WHERE terjual.id_pembelian='$_GET[id]'"); ?>
+				$ambil=$con->query("SELECT * FROM pembelian JOIN produk ON pembelian.id_produk=produk.id_produk WHERE pembelian.id_pembelian='$_GET[id]'"); ?>
 				<?php while($pecah = $ambil->fetch_assoc()){ ?>
 					<tr>
 						<td><?php echo $nomor; ?></td>

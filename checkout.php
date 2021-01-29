@@ -60,7 +60,7 @@ $con = new mysqli("localhost","root","","masdimas");
 					<?php foreach ($_SESSION['keranjang'] as $id_produk => $jumlah): ?>
 						<?php $ambil = $con->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
 						$pecah = $ambil->fetch_assoc();
-						var_dump($id_produk);
+						$x = $pecah['id_produk'];
 						$subharga = $pecah['harga']*$jumlah;
 						$total += $subharga; 
 						?>
@@ -125,12 +125,14 @@ $con = new mysqli("localhost","root","","masdimas");
 				$pembayaran = $_POST['pembayaran'];
 				$tanggal = $_POST['tanggal'];
 				$total1 = $total;
+				$id = $id_produk;
+				$jumlah1 =$jumlah;
 				// untuk memanggil nilai dari total jika $_POST[] dalam bentuk array 
 
 		
 			if ($tanggal != null) {
 				if ($pembayaran != 0) {
-					$sql = mysqli_query($con,"INSERT INTO `pembelian` (`id_pembelian`, `username`, `atasnama`, `tanggal`, `pembayaran`, `total`) VALUES (NULL, '$username', '$atasnama', '$tanggal', '$pembayaran', '$total1');");
+					$sql = mysqli_query($con,"INSERT INTO `pembelian` (`id_pembelian`,`id_produk`,`username`, `atasnama`, `tanggal`, `pembayaran`,`jumlah`, `total`) VALUES (NULL,'$id', '$username', '$atasnama', '$tanggal', '$pembayaran','$jumlah1', '$total1')");
 					if (isset($sql)) {
 						echo "<script>alert('Transaksi Berhasil! Pesanan sedang diproses');</script>";
 						echo "<script>location='home.php';</script>";

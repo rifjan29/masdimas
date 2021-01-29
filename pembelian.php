@@ -54,6 +54,7 @@ if($_SESSION['status']!="login"){
 				<tr>
 					<th>ID Pembelian</th>
 					<th>Username</th>
+					<th>Pembeli</th>
 					<th>Tanggal</th>
 					<th>Total</th>
 					<th>Aksi</th>
@@ -67,6 +68,7 @@ if($_SESSION['status']!="login"){
 					<tr>
 						<td><?php echo $pecah['id_pembelian'];?></td>
 						<td><?php echo $pecah['username'];?></td>
+						<td><?=$pecah['atasnama']?></td>
 						<td><?php echo $pecah['tanggal'];?></td>
 						<td><?php echo $pecah['total'];?></td>
 						<td>
