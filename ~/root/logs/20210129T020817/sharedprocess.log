@@ -1,2 +1,0 @@
-[2021-01-29 02:08:22.684] [sharedprocess] [info] main {"machineId":"6179e44fcc24a076d88d6cb2620f90b76129b453d6a7c152c89fb2c24b2b7e0b","windowId":2}
-[2021-01-29 02:08:23.329] [sharedprocess] [error] [File Watcher (node.js)] Error: ENOENT: no such file or directory, stat '/opt/lampp/htdocs/masdimas/~/root/User/snippets'

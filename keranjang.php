@@ -101,7 +101,7 @@ $con = new mysqli("localhost","root","","masdimas");
 		<br>
 		<br>
 		<?php
-			if ($ambil != null) {
+			if (isset($ambil)) {
 			 ?>
 				<a href="home.php" class="btn">Lanjutkan Belanja</a>
 				<a href="checkout.php">CHECKOUT</a>
