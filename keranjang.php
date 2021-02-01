@@ -90,7 +90,7 @@ $con = new mysqli("localhost","root","","masdimas");
 			}else{
 				?>
 					<center>
-						<p>Maaf tidak keranjang yang tersimpan</p>
+						<p>Maaf tidak ada keranjang yang tersimpan</p>
 					</center>
 				<?php
 			}

@@ -124,19 +124,24 @@ $con = new mysqli("localhost","root","","masdimas");
 				$atasnama = $_POST['atasnama'];
 				$pembayaran = $_POST['pembayaran'];
 				$tanggal = $_POST['tanggal'];
-				$total1 = $total;
+				$sub_total = $total;
 				$id = $id_produk;
-				$jumlah1 =$jumlah;
 				// untuk memanggil nilai dari total jika $_POST[] dalam bentuk array 
-
-		
 			if ($tanggal != null) {
 				if ($pembayaran != "null") {
-					$sql = mysqli_query($con,"INSERT INTO `pembelian` (`id_pembelian`,`id_produk`,`username`, `atasnama`, `tanggal`, `pembayaran`,`jumlah`, `total`) VALUES (NULL,'$id', '$username', '$atasnama', '$tanggal', '$pembayaran','$jumlah1', '$total1')");
+					$sql = mysqli_query($con,"INSERT INTO pembelian VALUES(NULL,'$username','$atasnama','$tanggal','$pembayaran','$sub_total')");
 					if (isset($sql)) {
-						echo "<script>alert('Transaksi Berhasil! Pesanan sedang diproses');</script>";
-						echo "<script>location='home.php';</script>";
-						unset($_SESSION['keranjang']);
+						$id = $con->insert_id;
+						// $detail_pembelian = mysqli_query($con,"INSERT INTO detail_pembelian VALUES('$id ,')")
+						foreach ($_SESSION['keranjang'] as $id_produk => $jumlah):
+							$ambil = $con->query("SELECT * FROM produk WHERE id_produk='$id_produk'");
+							$pecah = $ambil->fetch_assoc();
+							$subharga = $pecah['harga']*$jumlah;
+							$detail_pembelian = mysqli_query($con, "INSERT INTO detail_pembelian VALUES ('$id','$id_produk','$jumlah','$subharga')");
+							echo "<script>alert('Transaksi Berhasil! Pesanan sedang diproses');</script>";
+							echo "<script>location='home.php';</script>";
+							unset($_SESSION['keranjang']);
+					endforeach;
 					}else{
 						echo "Error! Mohon untuk mencoba kembali";
 					}

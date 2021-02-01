@@ -33,7 +33,7 @@
 			<tbody>
 				<?php $nomor=1; ?>
 				<?php include 'konek.php';
-				$ambil=$con->query("SELECT * FROM pembelian JOIN produk ON pembelian.id_produk=produk.id_produk WHERE pembelian.id_pembelian='$_GET[id]'"); ?>
+				$ambil=$con->query("SELECT * FROM detail_pembelian JOIN produk ON detail_pembelian.id_produk=produk.id_produk WHERE detail_pembelian.ud_pembelian='$_GET[id]'"); ?>
 				<?php while($pecah = $ambil->fetch_assoc()){ ?>
 					<tr>
 						<td><?php echo $nomor; ?></td>
