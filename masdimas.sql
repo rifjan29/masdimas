@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 27 Jan 2021 pada 12.19
--- Versi server: 10.1.36-MariaDB
--- Versi PHP: 7.2.11
+-- Host: localhost
+-- Generation Time: Feb 02, 2021 at 08:31 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
@@ -34,7 +33,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`username`, `password`) VALUES
@@ -43,7 +42,30 @@ INSERT INTO `admin` (`username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pembelian`
+-- Table structure for table `detail_pembelian`
+--
+
+CREATE TABLE `detail_pembelian` (
+  `ud_pembelian` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `subtotal` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_pembelian`
+--
+
+INSERT INTO `detail_pembelian` (`ud_pembelian`, `id_produk`, `jumlah`, `subtotal`) VALUES
+(25, 1, 1, '25000'),
+(25, 2, 1, '20000'),
+(25, 3, 1, '2000'),
+(26, 1, 2, '50000');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pembelian`
 --
 
 CREATE TABLE `pembelian` (
@@ -56,16 +78,17 @@ CREATE TABLE `pembelian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pembelian`
+-- Dumping data for table `pembelian`
 --
 
 INSERT INTO `pembelian` (`id_pembelian`, `username`, `atasnama`, `tanggal`, `pembayaran`, `total`) VALUES
-(1, 'nezarra', '', '2020-12-29', '', 20000);
+(25, 'admin', 'Rifjan Jundila', '2021-10-22', 'Transfer Bank ke BRI no REK.30xxxxxx', 47000),
+(26, 'admin', 'Jundil', '2021-02-01', 'COD/Bayar Tunai', 50000);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pengguna`
+-- Table structure for table `pengguna`
 --
 
 CREATE TABLE `pengguna` (
@@ -79,17 +102,18 @@ CREATE TABLE `pengguna` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `pengguna`
+-- Dumping data for table `pengguna`
 --
 
 INSERT INTO `pengguna` (`username`, `email`, `nohp`, `password`, `password2`, `alamat`, `kodepos`) VALUES
 ('a', 'a@gmail.com', '0000000', 'a', 'a', 'aaaaaaa', '11111111'),
+('admin', 'qwt@gmail.com', '1213', '123', '123', 'wq', '3113'),
 ('nezarra', 'neza@yahoo.com', '081234567890', 'nezarra', 'nezarra', 'Bojong Gede', '123456');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `produk`
+-- Table structure for table `produk`
 --
 
 CREATE TABLE `produk` (
@@ -101,7 +125,7 @@ CREATE TABLE `produk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `produk`
+-- Dumping data for table `produk`
 --
 
 INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `gambar`, `deskripsi`) VALUES
@@ -118,7 +142,7 @@ INSERT INTO `produk` (`id_produk`, `nama`, `harga`, `gambar`, `deskripsi`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `terjual`
+-- Table structure for table `terjual`
 --
 
 CREATE TABLE `terjual` (
@@ -129,7 +153,7 @@ CREATE TABLE `terjual` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `terjual`
+-- Dumping data for table `terjual`
 --
 
 INSERT INTO `terjual` (`id_terjual`, `id_pembelian`, `id_produk`, `jumlah`) VALUES
@@ -140,34 +164,62 @@ INSERT INTO `terjual` (`id_terjual`, `id_pembelian`, `id_produk`, `jumlah`) VALU
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indeks untuk tabel `pembelian`
+-- Indexes for table `detail_pembelian`
+--
+ALTER TABLE `detail_pembelian`
+  ADD KEY `ud_pembelian` (`ud_pembelian`),
+  ADD KEY `id_produk` (`id_produk`);
+
+--
+-- Indexes for table `pembelian`
 --
 ALTER TABLE `pembelian`
   ADD PRIMARY KEY (`id_pembelian`);
 
 --
--- Indeks untuk tabel `pengguna`
+-- Indexes for table `pengguna`
 --
 ALTER TABLE `pengguna`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indeks untuk tabel `produk`
+-- Indexes for table `produk`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
 
 --
--- Indeks untuk tabel `terjual`
+-- Indexes for table `terjual`
 --
 ALTER TABLE `terjual`
   ADD PRIMARY KEY (`id_terjual`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `pembelian`
+--
+ALTER TABLE `pembelian`
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `detail_pembelian`
+--
+ALTER TABLE `detail_pembelian`
+  ADD CONSTRAINT `detail_pembelian_ibfk_1` FOREIGN KEY (`ud_pembelian`) REFERENCES `pembelian` (`id_pembelian`),
+  ADD CONSTRAINT `detail_pembelian_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `produk` (`id_produk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
