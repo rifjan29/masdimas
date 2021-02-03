@@ -33,7 +33,7 @@ if (isset($_POST['tombol']))
 	include 'konek.php';
 	$nama = $_FILES['gambar']['name'];
 	$lokasi = $_FILES['gambar']['tmp_name'];
-	move_uploaded_file($lokasi, "../gambar/".$nama);
+	move_uploaded_file($lokasi, "gambar/".$nama);
 	$input=mysqli_query($con ,"insert into produk values('$_POST[id_produk]','$_POST[nama]','$_POST[harga]','$nama')");
 	echo "<div class='alert alert-info'>Data Tersimpan</div>";
 	echo "<meta http-equiv='refresh' content='1;url=dataproduk.php?halaman=produk'>";

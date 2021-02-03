@@ -23,7 +23,7 @@ $data = mysqli_fetch_array($ambil);
 		</tr>
 		<tr>
 			<td><p>Gambar</p></td>
-			<td><img src="gambar/<?php echo $data['gambar'];?>"width="50" height="80"><input type='file' name='gambar' value="<?php echo $data['gambar'] ?>"></td>
+			<td><img src="gambar/<?php echo $data['gambar'];?>"width="50" height="80"><input type='file' name='gambar'></td>
 		</tr>
 		<tr>
 			<td></td>
@@ -42,7 +42,7 @@ if (isset($_POST['ubah']))
 	$foto = $_FILES['gambar']['name'];
 	$lokasi = $_FILES['gambar']['tmp_name'];
 
-		mysqli_query($con ,"UPDATE produk SET id_produk='$id_produk', nama='$nama', harga='$harga', gambar='$foto' WHERE id_produk='$_GET[id]'");
+		mysqli_query($con ,"UPDATE produk SET id_produk='$id_produk', nama='$nama', harga='$harga', gambar='$foto' WHERE id_produk='$id_produk'");
 
 	echo "<div class='alert alert-info'>Data Telah Diubah</div>";
 	echo "<meta http-equiv='refresh' content='1;url=dataproduk.php?halaman=produk'>";
