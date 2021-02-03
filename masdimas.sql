@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 02, 2021 at 08:31 AM
+-- Generation Time: Feb 03, 2021 at 11:34 AM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,17 @@ INSERT INTO `detail_pembelian` (`ud_pembelian`, `id_produk`, `jumlah`, `subtotal
 (25, 1, 1, '25000'),
 (25, 2, 1, '20000'),
 (25, 3, 1, '2000'),
-(26, 1, 2, '50000');
+(26, 1, 2, '50000'),
+(28, 3, 1, '2000'),
+(29, 1, 1, '25000'),
+(30, 2, 1, '20000'),
+(31, 5, 1, '50000'),
+(32, 3, 1, '2000'),
+(32, 6, 1, '10000'),
+(33, 2, 1, '20000'),
+(34, 3, 1, '2000'),
+(35, 3, 1, '2000'),
+(36, 2, 1, '20000');
 
 -- --------------------------------------------------------
 
@@ -74,16 +84,28 @@ CREATE TABLE `pembelian` (
   `atasnama` varchar(100) NOT NULL,
   `tanggal` date NOT NULL,
   `pembayaran` varchar(200) NOT NULL,
-  `total` int(11) NOT NULL
+  `total` int(11) NOT NULL,
+  `status` enum('diproses','dikirim','selesai','ditolak') NOT NULL DEFAULT 'diproses',
+  `bukti_pembayaran` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pembelian`
 --
 
-INSERT INTO `pembelian` (`id_pembelian`, `username`, `atasnama`, `tanggal`, `pembayaran`, `total`) VALUES
-(25, 'admin', 'Rifjan Jundila', '2021-10-22', 'Transfer Bank ke BRI no REK.30xxxxxx', 47000),
-(26, 'admin', 'Jundil', '2021-02-01', 'COD/Bayar Tunai', 50000);
+INSERT INTO `pembelian` (`id_pembelian`, `username`, `atasnama`, `tanggal`, `pembayaran`, `total`, `status`, `bukti_pembayaran`) VALUES
+(25, 'admin', 'Rifjan Jundila', '2021-10-22', 'Transfer Bank ke BRI no REK.30xxxxxx', 47000, 'dikirim', 'almond.jpg'),
+(26, 'admin', 'Jundil', '2021-02-01', 'COD/Bayar Tunai', 50000, 'ditolak', 'index.jpeg'),
+(27, 'admin', 'oong', '2020-02-01', 'COD/Bayar Tunai', 20000, 'diproses', NULL),
+(28, 'admin', 'khalil', '2021-01-04', 'GOPAY/OVO', 2000, 'ditolak', 'PicsArt_01-31-08.31.40.jpg'),
+(29, 'oong', 'sa', '2022-03-04', 'Transfer Bank ke BRI no REK.30xxxxxx', 25000, 'diproses', NULL),
+(30, 'admin', 'oong', '2021-03-04', 'GOPAY/OVO', 20000, 'dikirim', '4073900_9c9f5919-a0b0-4ca2-9640-3cb4d2e1639e_725_1195.jpeg'),
+(31, 'admin', 'khalil', '2021-03-04', 'GOPAY/OVO', 50000, 'ditolak', 'PicsArt_01-31-08.31.40.jpg'),
+(32, 'admin', 'jundil', '2021-03-04', 'Transfer Bank ke BRI no REK.30xxxxxx', 12000, 'dikirim', 'bonek-pesantren2.jpeg'),
+(33, 'admin', 'hu', '2021-03-05', 'Transfer Bank ke BRI no REK.30xxxxxx', 20000, 'ditolak', 's.jpeg'),
+(34, 'admin', 'tes', '2021-02-03', 'Transfer Bank ke BRI no REK.30xxxxxx', 2000, 'dikirim', 'IMG-20180228-WA0027.jpeg'),
+(35, 'admin', 'as', '2021-02-03', 'GOPAY/OVO', 2000, 'ditolak', '2.jpeg'),
+(36, 'admin', 'ceceeeeeeeeeeeee', '2021-02-16', 'COD/Bayar Tunai', 20000, 'diproses', NULL);
 
 -- --------------------------------------------------------
 
@@ -208,7 +230,7 @@ ALTER TABLE `terjual`
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- Constraints for dumped tables
