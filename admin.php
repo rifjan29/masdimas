@@ -41,6 +41,7 @@ if($_SESSION['status']!="login"){
                 <li><a href="dataproduk.php">Data Produk</a></li>
                 <li><a href="pembelian.php">Pembelian</a></li>
                 <li><a href="pelanggan.php">Pelanggan</a></li>
+				<li><a href="menunggupersetujuan.php">Menunggu persetujuan</a></li>
             </ul>
         </div>
     </div>

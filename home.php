@@ -33,6 +33,7 @@ if($_SESSION['status']!="login"){
             </div>
             <div class="c">
                 <a href="keranjang.php" class="custom-logo-link" rel="home" aria-current="page"><img width="35" height="35" src="gambar/keranjang.png" class="custom-logo">     My Cart     </a>
+                <a href="list-transaksi.php" class="custom-logo-link" rel="home" aria-current="page"><img width="35" height="35" src="gambar/keranjang.png" class="custom-logo">     Transaksi     </a>
             </div>
         </div>
         <div class="menu-header-2">
